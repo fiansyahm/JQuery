@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- cdn jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <h6>1. Menghilangkan judul dengan satu klik</h6>
+            <h1 class="klik1x">Halo Semua</h1>
+            <p>
+                $(this).hide() - Menyembunyikan elemet sekarang.<br> $("h1").hide() - menyembunyikan element p.<br> $(".test").hide() - menghilangkan element class=".test" ".<br> $("#test").hide() - menghilangkan element dengan id="test".<br>
+            </p>
+            <script>
+                $(document).ready(
+                    function() {
+                        $(".klik1x").click(
+                            function() {
+                                $(this).hide();
+                            }
+                        );
+                    }
+                );
+            </script>
+            <script src="https://pastebin.com/embed_js/DPgKHP6a?theme=dark"></script>
+        </div>
+        <div class="col-md-4">
+            <h6>2. Menghilangkan judul dengan dua klik</h6>
+            <h1 class="klik2x">Halo Semua</h1>
+            <p>
+                $(this).hide() - Menyembunyikan elemet sekarang.<br> $("h1").hide() - menyembunyikan element p.<br> $(".test").hide() - menghilangkan element class=".test" ".<br> $("#test").hide() - menghilangkan element dengan id="test".<br>
+            </p>
+            <script>
+                $(document).ready(
+                    function() {
+                        $(".klik2x").dblclick(
+                            function() {
+                                $(this).hide();
+                            }
+                        );
+                    }
+                );
+            </script>
+            <script src="https://pastebin.com/embed_js/GKNj0c8D?theme=dark"></script>
+        </div>
+    </div>
+</body>
+
+</html>
