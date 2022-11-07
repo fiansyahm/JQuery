@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <!-- cdn jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container my-5">
+        <h1 class="text-center my-5">Jquery Effect</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <h6>1. Hide judul dengan satu klik, show judul double klik</h6>
+                <h1 class="on">Klik Disini</h1>
+                <p id="hideshow" ">
+                    $(this).hide() - Menyembunyikan elemet sekarang.<br>
+                    $(this).show() - Memunculkan elemet sekarang.<br>
+                </p>
+                <script>
+                    $(document).ready(function() {
+                        $(".on ").on({
+                            click:function(){
+                                $("#hideshow ").hide();
+                                
+                            },
+                            dblclick:function(){
+                                $("#hideshow ").show();
+                                
+                            }
+                        });
+                    });
+                </script>
+                <script src="https://pastebin.com/embed_js/imdTFEmB?theme=dark "></script>
+            </div>
+            
+            <div class="col-md-4 ">
+                <h6>2. fadein box dengan satu klik, fadeout box double klik</h6>
+                <h1 class="on1 ">Klik Disini</h1>
+                <p class="p1 ">
+                    $(this).fadein() - Menyembunyikan elemet sekarang.<br> $(this).fadeout() - Memunculkan elemet sekarang.<br>
+                </p>
+                <script>
+                    $(document).ready(function() {
+                        $(".on1 ").on({
+                            click: function() {
+                                $(".p1 ").fadeIn();
+                            },
+                            dblclick: function() {
+                                $(".p1 ").fadeOut()
+                            }
+                        });
+                    });
+                </script>
+                <script src="https://pastebin.com/embed_js/RmZYPBGn?theme=dark "></script>
+            </div>
+
+            <div class="col-md-4 ">
+                <h6 class="on2-togle ">3. slide down dengan satu klik, slide up dengan double klik</h6>
+                <h1 class="on2 ">Klik Disini</h1>
+                <p class="p2 ">
+                    $(this).slideUp() - Menyembunyikan elemet sekarang.<br> $(this).slideDown() - Memunculkan elemet sekarang.<br>
+                </p>
+                <script>
+                    $(document).ready(function() {
+                        $(".on2 ").on({
+                            click: function() {
+                                $(".p2 ").slideDown(5000);
+                            },
+                            dblclick: function() {
+                                $(".p2 ").slideUp(5000)
+                            }
+                        }),
+                        $(".on2-togle ").on({
+                            click: function() {
+                                $(".p2 ").stop();
+                            },
+                        });
+                    });
+                </script>
+                <script src="https://pastebin.com/embed_js/ep1Reyqu?theme=dark "></script>
+            </div>
+            
+            <div class="col-md-4 ">
+                <h6 class="on3-togle ">4. Animate</h6>
+                <h1 class="on3 ">Klik Disini</h1>
+                <p class="p3 ">
+                    $(this).slideUp() - Menyembunyikan elemet sekarang.<br> $(this).slideDown() - Memunculkan elemet sekarang.<br>
+                </p>
+                <script>
+                    $(document).ready(function() {
+                        $(".on3 ").on({
+                            click: function() {
+                                $(".p3 ").animate({
+                                    opacity: 0
+                                })
+                            },
+                            dblclick: function() {
+                                $(".p3 ").animate({
+                                    opacity: 1
+                                })
+                            }
+                        }),
+                        $(".on3-togle ").on({
+                            click: function() {
+                                $(".p3 ").animate({
+                                    opacity: '-=0.4'
+                                })
+                            },
+                        });
+                    });
+                </script>
+                <script src="https://pastebin.com/embed_js/ep1Reyqu?theme=dark "></script>
+            </div>
+            
+            <div class="col-md-4 ">
+                <h6 class="on4-togle ">5. Stop</h6>
+                <h1 class="on4 ">Klik Disini</h1>
+                <p class="p4 ">
+                    $(this).stop - Menghentikan  elemet saat berlangsung.<br>
+                </p>
+                <script>
+                    $(document).ready(function() {
+                        $(".on4 ").on({
+                            click: function() {
+                                $(".p4 ").animate({
+                                    opacity: 0
+                                })
+                            },
+                            dblclick: function() {
+                                $(".p4 ").animate({
+                                    opacity: 1
+                                })
+                            }
+                        }),
+                        $(".on4-togle ").on({
+                            click: function() {
+                                $(".p4 ").stop();
+                            },
+                        });
+                    });
+                </script>
+                <script src="https://pastebin.com/embed_js/bsigTPJg?theme=dark "></script>
+            </div>
+            
+            <div class="col-md-4 ">
+                <h6 class="on5-togle ">6. Callback</h6>
+                <h1 class="on5 ">Klik Disini</h1>
+                <p class="p5 ">
+                    $(this).hide(1000) - Mengatur parameter sebuah fungsi.Ex:kecepatan.<br>
+                </p>
+                <script>
+                   $(document).ready(function(){
+                       $(".on5 ").click(function(){
+                           $(this).hide(10000);
+                       });
+                   });
+                </script>
+                <script src="https://pastebin.com/embed_js/6wrGadzT?theme=dark "></script>
+            </div>
+            
+            <div class="col-md-4 ">
+                <h6 class="on6-togle ">7. Chaining</h6>
+                <h1 class="on6 ">Klik Disini</h1>
+                <p class="p6 ">
+                    $(this).hide(1000).show(1000) - Menambah effect dalam beberapa fungsi.<br>
+                </p>
+                <script>
+                   $(document).ready(function(){
+                       $(".on6 ").click(function(){
+                        $(this).slideUp( 3000 ).slideDown(3000);
+                        var delayInMilliseconds = 3000; //1 second.    
+                        setTimeout(function() {
+                            $(".on6 ").text("I LOVE U ")
+                        }, delayInMilliseconds);
+                        
+                       });
+                   });
+                </script>
+                <script src="https://pastebin.com/embed_js/8fPHEVMs?theme=dark "></script>
+            </div>
+
+            
+            
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3 " crossorigin="anonymous "></script> -->
+</body>
+
+</html>
