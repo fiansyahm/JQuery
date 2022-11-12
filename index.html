@@ -74,14 +74,14 @@
         <p id="tanda-2" class="fs-1" style="font-family: 'Rouge Script', cursive;display: none;">Couple</p>
         <p id="tanda-3" style="display: none;">"Maha Suci Allah Subhanahu wa Ta'ala yang telah<br>menciptakan makhluk-Nya berpasang-pasangan. Ya Allah,<br> perkenankanlah dan Ridhoilah Pernikahan Kami."</p>
 
-        <div class="card ms-5 mt-5" style="width: 18rem;">
-            <img class="img-fluid p-3 pb-5" src="https://cdns.klimg.com/merdeka.com/i/w/news/2021/12/03/1382841/content_images/670x335/20211203082909-1-jenis-kucing-persia-003-andre-kurniawan.png" class="card-img-top" alt="...">
+        <div class="container">
+            <div class="card ms-5 mt-5" style="width: 18rem;">
+                <img class="img-fluid p-3 pb-5" src="https://cdns.klimg.com/merdeka.com/i/w/news/2021/12/03/1382841/content_images/670x335/20211203082909-1-jenis-kucing-persia-003-andre-kurniawan.png" class="card-img-top" alt="...">
+            </div>
+            <div class="card ms-auto mt-5" style="width: 18rem;">
+                <img class="img-fluid p-3 pb-5" src="https://cdns.klimg.com/merdeka.com/i/w/news/2021/12/03/1382841/content_images/670x335/20211203082909-1-jenis-kucing-persia-003-andre-kurniawan.png" class="card-img-top" alt="...">
+            </div>
         </div>
-        <div class="card ms-auto mt-5" style="width: 18rem;">
-            <img class="img-fluid p-3 pb-5" src="https://cdns.klimg.com/merdeka.com/i/w/news/2021/12/03/1382841/content_images/670x335/20211203082909-1-jenis-kucing-persia-003-andre-kurniawan.png" class="card-img-top" alt="...">
-        </div>
-
-
 
     </div>
 
@@ -147,8 +147,8 @@
 
         $(document).scroll(function() {
             var y = window.scrollY;
+            playAudioFirstly();
             if (y >= 80) {
-                // document.getElementById('sound').play();
 
                 $("#dove").fadeIn(10000);
                 $("#tanda-1").slideDown(10000)
@@ -156,7 +156,7 @@
                 $("#tanda-3").slideDown(4000)
 
             } else {
-                playAudioFirstly();
+
                 $("#loversname").fadeIn(4000);
             }
         });
