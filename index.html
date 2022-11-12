@@ -93,13 +93,38 @@
     <audio id="sound" src="beautiful.mp3" preload="auto" controls></audio>
     <script>
         var flag = 0;
-        $(document).ready(function() {
+
+        var audio = $("#sound")[0];
+
+        function playAudio() {
+            $("#disc").animate({
+                "margin-left": "20px",
+                "transform": "rotate(360deg)"
+            }, 'slow');
+            audio.play();
+        }
+
+        function stopAudio() {
+            $("#disc").animate({
+                "margin-left": "110px",
+                "transform": "rotate(360deg)"
+            }, 'slow');
+            audio.pause();
+        }
+
+        function checkMarginLeft() {
             var p = document.getElementById("disc");
             var style = p.currentStyle || window.getComputedStyle(p);
+            return style;
+        }
 
-            var audio = $("#sound")[0];
 
-            function playAudio() {
+
+        function playAudioFirstly() {
+            var style = checkMarginLeft();
+            var y = window.scrollY;
+            if (y >= 80 && style.marginLeft.toString() == "110px" && flag == 0) {
+                flag = 1;
                 $("#disc").animate({
                     "margin-left": "20px",
                     "transform": "rotate(360deg)"
@@ -107,33 +132,17 @@
                 audio.play();
             }
 
-            function stopAudio() {
-                $("#disc").animate({
-                    "margin-left": "110px",
-                    "transform": "rotate(360deg)"
-                }, 'slow');
-                audio.pause();
-            }
+        }
+
+        $(document).ready(function() {
             $("#disc").click(function() {
+                var style = checkMarginLeft();
                 if (style.marginLeft.toString() == "110px") {
                     playAudio();
                 } else {
                     stopAudio();
                 }
             });
-
-            function playAudioFirstly() {
-                var y = window.scrollY;
-                if (y >= 80 && style.marginLeft.toString() == "110px" && flag == 0) {
-                    flag = 1;
-                    $("#disc").animate({
-                        "margin-left": "20px",
-                        "transform": "rotate(360deg)"
-                    }, 'slow');
-                    audio.play();
-                }
-
-            }
 
             $("div").mouseenter(
                 function() {
