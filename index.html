@@ -90,7 +90,7 @@
         <img id="disc" src="https://i.pinimg.com/originals/76/33/63/763363a3be941b93610d58f8fb54e638.png" alt="" height="70" width="70">
         <!-- </div> -->
     </div>
-    <audio id="sound" src="https://github.com/fiansyahm/JQuery/blob/main/beautiful.mp3?raw=true" preload="auto" controls></audio>
+    <audio id="sound" src="beautiful.mp3" preload="auto" controls></audio>
     <script>
         var flag = 0;
         $(document).ready(function() {
@@ -98,36 +98,50 @@
             var style = p.currentStyle || window.getComputedStyle(p);
 
             var audio = $("#sound")[0];
+
+            function playAudio() {
+                $("#disc").animate({
+                    "margin-left": "20px",
+                    "transform": "rotate(360deg)"
+                }, 'slow');
+                audio.play();
+            }
+
+            function stopAudio() {
+                $("#disc").animate({
+                    "margin-left": "110px",
+                    "transform": "rotate(360deg)"
+                }, 'slow');
+                audio.pause();
+            }
             $("#disc").click(function() {
                 if (style.marginLeft.toString() == "110px") {
+                    playAudio();
+                } else {
+                    stopAudio();
+                }
+            });
+
+            function playAudioFirstly() {
+                var y = window.scrollY;
+                if (y >= 80 && style.marginLeft.toString() == "110px" && flag == 0) {
+                    flag = 1;
                     $("#disc").animate({
                         "margin-left": "20px",
                         "transform": "rotate(360deg)"
                     }, 'slow');
                     audio.play();
-                } else {
-                    $("#disc").animate({
-                        "margin-left": "110px",
-                        "transform": "rotate(360deg)"
-                    }, 'slow');
-                    audio.pause();
                 }
-            });
 
-            $("div").hover(
+            }
+
+            $("div").mouseenter(
                 function() {
-                    var y = window.scrollY;
-                    if (y >= 80 && style.marginLeft.toString() == "110px" && flag == 0) {
-                        flag = 1;
-                        $("#disc").animate({
-                            "margin-left": "20px",
-                            "transform": "rotate(360deg)"
-                        }, 'slow');
-                        audio.play();
-                    }
-
+                    playAudioFirstly();
                 }
             );
+
+
 
         });
     </script>
