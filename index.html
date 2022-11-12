@@ -141,11 +141,12 @@
             var y = window.scrollY;
             if (y >= 80) {
                 // document.getElementById('sound').play();
+                playAudioFirstly();
                 $("#dove").fadeIn(10000);
                 $("#tanda-1").slideDown(10000)
                 $("#tanda-2").slideDown(7000)
                 $("#tanda-3").slideDown(4000)
-                playAudioFirstly();
+
             } else {
                 $("#loversname").fadeIn(4000);
             }
