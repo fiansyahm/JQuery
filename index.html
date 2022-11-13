@@ -128,7 +128,10 @@
                     "margin-left": "20px",
                     "transform": "rotate(360deg)"
                 }, 'slow');
-                audio.play();
+
+                setTimeout(function() {
+                    audio.play();
+                }, 3000);
             }
 
         }
@@ -149,7 +152,7 @@
             var y = window.scrollY;
 
             if (y >= 80) {
-
+                playAudioFirstly();
                 $("#dove").fadeIn(10000);
                 $("#tanda-1").slideDown(10000)
                 $("#tanda-2").slideDown(7000)
