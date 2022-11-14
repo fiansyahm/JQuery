@@ -87,18 +87,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card ms-md-5 mt-5" style="width: 18rem">
-                        <img class="img-fluid p-3 pb-5" src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2021/12/05/378408827.jpg" class="card-img-top" alt="..." />
+                        <img id="foto-profil-1" style="display: none" class="img-fluid p-3 pb-5" src="https://i.pinimg.com/564x/28/2c/99/282c99f6b36c8cef076b9bac48ec335b.jpg" class="card-img-top" alt="..." />
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="mt-5" style="length: 25rem;">
                         <div class="card-body">
-                            <h1 class="card-title" style="font-family: 'Square Peg', cursive;font-size: 75px;">Fira</h1>
-                            <h2 class="card-subtitle mb-2 text-muted" style="font-family: 'Princess Sofia', cursive; ">FIRA PERMATA, S.Pd</h2>
-                            <h6>Putra Ketiga</h6>
-                            <p>Bapak Darso Permono S.Sos<br> & <br>Ibu Rukmini Handayani S.Sos</p>
-
+                            <h1 class="card-title" id="nickname-profil-1" style="margin-top: 1000px;font-family: 'Square Peg', cursive;font-size: 75px;">Fira</h1>
+                            <h2 class="card-subtitle mb-2 text-muted" id="fullname-profil-1" style="margin-left: 1000px;font-family: 'Princess Sofia', cursive; ">Fira Permata, S.Pd</h2>
+                            <div id="family-profil-1" style="display: none">
+                                <h6>Putra Ketiga</h6>
+                                <p>Bapak Darso Permono<br> & <br>Ibu Rukmini Handayani</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,17 +116,18 @@
                 <div class="col-md-4">
                     <div class="mt-5" style="length: 25rem;">
                         <div class="card-body">
-                            <h1 class="card-title" style="font-family: 'Square Peg', cursive;font-size: 75px;">Fira</h1>
-                            <h2 class="card-subtitle mb-2 text-muted" style="font-family: 'Princess Sofia', cursive; ">FIRA PERMATA, S.Pd</h2>
-                            <h6>Putra Ketiga</h6>
-                            <p>Bapak Darso Permono S.Sos<br> & <br>Ibu Rukmini Handayani S.Sos</p>
-
+                            <h1 class="card-title" id="nickname-profil-2" style="margin-top: 1000px;font-family: 'Square Peg', cursive;font-size: 75px;">Adi</h1>
+                            <h2 class="card-subtitle mb-2 text-muted" id="fullname-profil-2" style="margin-right: 1000px;font-family: 'Princess Sofia', cursive; ">Adi Firmansyah, SH</h2>
+                            <div id="family-profil-2" style="display: none">
+                                <h6>Putra Pertama</h6>
+                                <p>Bapak Dwi Darmono<br> & <br>Ibu Ningsih Rukmini</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 ">
                     <div class="card ms-auto mt-5 " style="width: 18rem ">
-                        <img class="img-fluid p-3 pb-5 " src="https://www.kibrispdr.org/data/811/poto-poto-kucing-lucu-59.jpg " class="card-img-top " alt="... " />
+                        <img id="foto-profil-2" style="display: none" class="img-fluid p-3 pb-5 " src="https://storage.googleapis.com/fastwork-static/6a19c479-994b-4572-8fb5-95bf378f71e6.jpg" class="card-img-top " alt="... " />
                     </div>
                 </div>
             </div>
@@ -133,9 +135,15 @@
     </div>
 
     <div id="card" class="card fixed-top">
-        <audio id="sound" src="https://github.com/fiansyahm/JQuery/blob/main/thismoment.mp3" preload="auto" controls></audio>
+        <audio id="sound" src="https://github.com/fiansyahm/JQuery/blob/main/thismoment.mp3?raw=true" preload="auto" controls></audio>
         <img id="disc" src="https://i.pinimg.com/originals/76/33/63/763363a3be941b93610d58f8fb54e638.png" alt="" height="70" width="70" />
     </div>
+
+    <div class="fixed-top">
+        <div class="output"></div>
+    </div>
+
+
 
     <script>
         // static file
@@ -200,16 +208,40 @@
         });
 
         $(document).scroll(function() {
-            var y = window.scrollY;
 
-            if (y >= 80) {
+            const output = document.querySelector(".output");
+            output.innerHTML = `scrollTop: ${window.scrollY} <br>
+                                scrollLeft: ${window.scrollX} <br>
+                                `;
+
+
+            var y = window.scrollY;
+            if (y <= 10) {
+                $("#loversname").fadeIn(4000);
+            } else if (y <= 200) {
                 playAudioFirstly();
                 $("#dove").fadeIn(10000);
                 $("#tanda-1").slideDown(10000);
                 $("#tanda-2").slideDown(7000);
                 $("#tanda-3").slideDown(4000);
-            } else {
-                $("#loversname").fadeIn(4000);
+            } else if (y <= 1400) {
+                $("#foto-profil-1").fadeIn(50000);
+                $("#nickname-profil-1").animate({
+                    marginTop: '0px',
+                }, 10000);
+                $("#fullname-profil-1").animate({
+                    marginLeft: '0px',
+                }, 10000);
+                $("#family-profil-1").fadeIn(50000);
+            } else if (y <= 1850) {
+                $("#foto-profil-2").fadeIn(50000);
+                $("#nickname-profil-2").animate({
+                    marginTop: '0px',
+                }, 10000);
+                $("#fullname-profil-2").animate({
+                    marginRight: '0px',
+                }, 10000);
+                $("#family-profil-2").fadeIn(50000);
             }
         });
     </script>
