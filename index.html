@@ -50,10 +50,10 @@
         #date_time {
             background-image: url("https://photoshop-kopona.com/uploads/posts/2020-06/1591261933_romantic-wedding-backgrounds-1.jpg");
             background-size: cover;
-            height: 620px;
+            height: 900px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Marck+Script&family=Princess+Sofia&family=Rouge+Script&family=Square+Peg&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Euphoria+Script&family=Marck+Script&family=Princess+Sofia&family=Rouge+Script&family=Square+Peg&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -170,10 +170,12 @@
                 <p class="card-title">Detik</p>
             </div>
         </div>
-        <div class="container">
-            <p class="text-center mt-5">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia<br> menciptakan pasangan-pasangan untukmu dari jenismu<br>sendiri, agar kamu cenderung dan merasa tenteram<br>kepadanya, dan Dia menjadikan di antaramu rasa kasih dan<br>sayang. Sungguh,
-                pada yang demikian itu benar-benar<br>terdapat tanda-tanda (kebesaran Allah) bagi kaum yang<br>berpikir."</p>
-            <p>- Q.S. Ar-Rum : 21 -</p>
+        <div class="container p-5">
+            <div class="card-body">
+                <p style="display: none;font-family: 'Dancing Script', cursive;font-size: 20px;font-weight: bold" id="ayat-pasangan-1" class="text-center">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang
+                    demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
+                <p style="display: none;font-family: 'Dancing Script', cursive;font-size: 20px;font-weight: bold" id="ayat-pasangan-2">- Q.S. Ar-Rum : 21 -</p>
+            </div>
         </div>
     </div>
 
@@ -209,6 +211,13 @@
             $("#seconds").text(seconds);
 
         }, 1000);
+
+        function setMymargin() {
+            const output = document.querySelector(".output");
+            output.innerHTML = `scrollTop: ${window.scrollY} <br>
+                                scrollLeft: ${window.scrollX} <br>
+                                `;
+        }
 
         function playAudio() {
             $("#disc").animate({
@@ -268,10 +277,7 @@
 
         $(document).scroll(function() {
 
-            const output = document.querySelector(".output");
-            output.innerHTML = `scrollTop: ${window.scrollY} <br>
-                                scrollLeft: ${window.scrollX} <br>
-                                `;
+            // setMymargin();
             var y = window.scrollY;
             if (y <= 10) {
                 $("#loversname").fadeIn(4000);
@@ -344,6 +350,9 @@
                         });
                     }
                 });
+
+                $("#ayat-pasangan-1").fadeIn(21000);
+                $("#ayat-pasangan-2").fadeIn(21000);
 
             }
         });
