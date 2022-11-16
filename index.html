@@ -17,14 +17,6 @@
             background-size: cover;
             height: 600px;
         }
-        /* body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #F0EEED;
-        } */
         
         audio {
             display: none;
@@ -53,6 +45,12 @@
             height: 100px;
             width: 100px;
             opacity: 0.5;
+        }
+        
+        #date_time {
+            background-image: url("https://photoshop-kopona.com/uploads/posts/2020-06/1591261933_romantic-wedding-backgrounds-1.jpg");
+            background-size: cover;
+            height: 620px;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Marck+Script&family=Princess+Sofia&family=Rouge+Script&family=Square+Peg&display=swap" rel="stylesheet">
@@ -108,8 +106,8 @@
 
                 </div>
             </div>
-
-            <div class="row ">
+            <p class="" style="font-family: 'Square Peg', cursive;font-size: 75px;">&</p>
+            <div class="row">
                 <div class="col-md-4 ">
 
                 </div>
@@ -136,11 +134,47 @@
 
     <div id="card" class="card fixed-top">
         <audio id="sound" src="https://github.com/fiansyahm/JQuery/blob/main/thismoment.mp3?raw=true" preload="auto" controls></audio>
+        <!-- <audio id="sound" src="thismoment.mp3" preload="auto" controls></audio> -->
         <img id="disc" src="https://i.pinimg.com/originals/76/33/63/763363a3be941b93610d58f8fb54e638.png" alt="" height="70" width="70" />
     </div>
 
     <div class="fixed-top">
         <div class="output"></div>
+    </div>
+
+    <div id="date_time" class="text-center bg-primary">
+        <img id="ring" style="display: none;" height="200" width="200" class="img-fluid mt-5" src="https://www.freepnglogos.com/uploads/wedding-ring-png/wedding-ring-weddings-events-luxurious-hotel-lindos-rhodes-1.png" alt="wedding ring">
+        <h1 id="waktu-tempat" style="display:none; font-family: 'Square Peg', cursive;font-size: 75px;">Waktu & Tempat</h1>
+
+        <div id="days-card" class="card d-inline-flex" style="width: 9rem;">
+            <div class="card-body">
+                <h5 id="days" class="card-title">00</h5>
+                <p class="card-title">Hari</p>
+            </div>
+        </div>
+        <div id="hours-card" class="card d-inline-flex" style="width: 9rem;">
+            <div class="card-body">
+                <h5 id="hours" class="card-title">00</h5>
+                <p class="card-title">Jam</p>
+            </div>
+        </div>
+        <div id="minutes-card" class="card d-inline-flex" style="width: 9rem;">
+            <div class="card-body">
+                <h5 id="minutes" class="card-title">00</h5>
+                <p class="card-title">Menit</p>
+            </div>
+        </div>
+        <div id="seconds-card" class="card d-inline-flex" style="width: 9rem;">
+            <div class="card-body">
+                <h5 id="seconds" class="card-title">00</h5>
+                <p class="card-title">Detik</p>
+            </div>
+        </div>
+        <div class="container">
+            <p class="text-center mt-5">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia<br> menciptakan pasangan-pasangan untukmu dari jenismu<br>sendiri, agar kamu cenderung dan merasa tenteram<br>kepadanya, dan Dia menjadikan di antaramu rasa kasih dan<br>sayang. Sungguh,
+                pada yang demikian itu benar-benar<br>terdapat tanda-tanda (kebesaran Allah) bagi kaum yang<br>berpikir."</p>
+            <p>- Q.S. Ar-Rum : 21 -</p>
+        </div>
     </div>
 
 
@@ -150,7 +184,32 @@
         var flag = 0;
         const audio = $("#sound")[0];
 
+
         // functions
+
+        var x = setInterval(function() {
+            var countDownDate = new Date("Nov 20, 2022 00:00:00").getTime();
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            if (days < 10) days = "0" + days;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            if (hours < 10) hours = "0" + hours;
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            if (minutes < 10) minutes = "0" + minutes;
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (seconds < 10) seconds = "0" + seconds;
+            $("#days").text(days);
+            $("#hours").text(hours);
+            $("#minutes").text(minutes);
+            $("#seconds").text(seconds);
+
+        }, 1000);
+
         function playAudio() {
             $("#disc").animate({
                     "margin-left": "20px",
@@ -209,12 +268,10 @@
 
         $(document).scroll(function() {
 
-            // const output = document.querySelector(".output");
-            // output.innerHTML = `scrollTop: ${window.scrollY} <br>
-            //                     scrollLeft: ${window.scrollX} <br>
-            //                     `;
-
-
+            const output = document.querySelector(".output");
+            output.innerHTML = `scrollTop: ${window.scrollY} <br>
+                                scrollLeft: ${window.scrollX} <br>
+                                `;
             var y = window.scrollY;
             if (y <= 10) {
                 $("#loversname").fadeIn(4000);
@@ -227,7 +284,7 @@
             } else if (y <= 1400) {
                 $("#foto-profil-1").fadeIn(50000);
                 $("#nickname-profil-1").animate({
-                    marginTop: '0px',
+                    marginTop: '125px',
                 }, 10000);
                 $("#fullname-profil-1").animate({
                     marginLeft: '0px',
@@ -242,6 +299,52 @@
                     marginRight: '0px',
                 }, 10000);
                 $("#family-profil-2").fadeIn(50000);
+            } else if (y <= 2600) {
+                $("#ring").show(10000);
+                $("#waktu-tempat").fadeTo(10000, 0.5, function() {
+                    $("#waktu-tempat").fadeTo(10000, 1.0);
+                });
+                $("#days-card").animate({
+                    deg: 360
+                }, {
+                    duration: 12000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+                $("#hours-card").animate({
+                    deg: 360
+                }, {
+                    duration: 15000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+                $("#minutes-card").animate({
+                    deg: 360
+                }, {
+                    duration: 18000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+                $("#seconds-card").animate({
+                    deg: 360
+                }, {
+                    duration: 21000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+
             }
         });
     </script>
