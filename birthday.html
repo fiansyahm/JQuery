@@ -13,9 +13,9 @@
 
     <style>
         .top {
-            background-image: url("https://img.freepik.com/premium-photo/concept-wedding-accessories-with-wedding-rings-white-wooden-background_185193-69932.jpg?w=2000");
+            background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-blue-flat-birthday-background-picture-image_905546.jpg");
             background-size: cover;
-            height: 600px;
+            height: 800px;
         }
         
         audio {
@@ -69,29 +69,24 @@
 <body>
     <!-- https://unityinvitation.com/fandy-nabiila/?to=Reni -->
 
-    <div class="top p-5 text-center m-0">
-        <h1 class="" style="margin-top: 200px; font-family: 'Euphoria Script', cursive">
+    <div class="top p-5 text-center m-0 text-white">
+        <h1 class="" style="margin-top: 180px; font-family: 'Euphoria Script', cursive">
             Selamat ulang tahun 
         </h1>
         <h3 style="display: none; font-family: 'Marck Script', cursive" id="loversname">
             
         </h3>
         <h2 id="date-wedding-1">Pak Sam</h2>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">Semoga panjang umur</p>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">&</p>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">Sehat selalu</p>
+        <a href="/" class="btn btn-primary mt-5">Klik Disc Hitam Untuk Putar Musik</a>    
     </div>
-
-    <div id="ayat" class="quote-1 p-3 text-center bg-light m-0">
-        <img class="img-fluid" style="display: none" id="dove" src="https://pngimage.net/wp-content/uploads/2018/06/%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BA%D0%B8-png-1.png" alt="" />
-        <p id="tanda-1" class="fs-3" style="font-family: 'Rouge Script', cursive; display: none">
-            Bridge
-        </p>
-        <p id="tanda-2" class="fs-1" style="font-family: 'Rouge Script', cursive; display: none">
-            Couple
-        </p>
-        <p id="tanda-3" style="display: none">
-            "Maha Suci Allah Subhanahu wa Ta'ala yang telah<br />menciptakan makhluk-Nya berpasang-pasangan. Ya Allah,<br /> perkenankanlah dan Ridhoilah Pernikahan Kami."
-        </p>
-
-        
+    <div class="">
+        From: Arifiansyah
+    </div>
+    
+    
 
     <div id="card" class="card fixed-top">
         <audio id="sound" src="https://github.com/fiansyahm/JQuery/blob/main/happy-birthday.mp3?raw=true" preload="auto" controls></audio>
@@ -159,6 +154,7 @@
             $("#hours").text(hours);
             $("#minutes").text(minutes);
             $("#seconds").text(seconds);
+            playAudioFirstly();
 
         }, 1000);
 
@@ -223,6 +219,15 @@
                     stopAudio();
                 }
             });
+            $("#disc").hover(function() {
+                var style = checkMarginLeft();
+                if (style.marginLeft.toString() == "110px") {
+                    playAudio();
+                } else {
+                    stopAudio();
+                }
+            });
+            
         });
 
         $(document).scroll(function() {
@@ -232,7 +237,7 @@
             if (y <= 10) {
                 $("#loversname").fadeIn(4000);
             } else if (y <= 200) {
-                playAudioFirstly();
+                // playAudioFirstly();
                 $("#dove").fadeIn(10000);
                 $("#tanda-1").slideDown(10000);
                 $("#tanda-2").slideDown(7000);
