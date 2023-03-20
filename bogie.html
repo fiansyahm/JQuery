@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Birthday Bogie</title>
+    <!-- cdn jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="icon" href="https://png.pngtree.com/background/20210709/original/pngtree-blue-flat-birthday-background-picture-image_905546.jpg" />
+
+    <style>
+        .top {
+            background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-blue-flat-birthday-background-picture-image_905546.jpg");
+            background-size: cover;
+            height: 800px;
+        }
+        
+        audio {
+            display: none;
+        }
+        
+        #container {
+            height: 180px;
+            width: 180px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            position: relative;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+            transition: 0.5s linear;
+        }
+        
+        #disc {
+            margin-left: 110px;
+            margin-right: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        #card {
+            margin-top: 40px;
+            margin-left: 25px;
+            height: 100px;
+            width: 100px;
+            opacity: 0.5;
+        }
+        
+        #date_time {
+            background-image: url("https://photoshop-kopona.com/uploads/posts/2020-06/1591261933_romantic-wedding-backgrounds-1.jpg");
+            background-size: cover;
+            /* height: 1300px; */
+        }
+        .fireworks{
+            position: absolute;
+            left:0;
+            top:0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Euphoria+Script&family=Marck+Script&family=Princess+Sofia&family=Rouge+Script&family=Square+Peg&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- https://unityinvitation.com/fandy-nabiila/?to=Reni -->
+
+    <div class="top p-5 text-center m-0 text-white">
+        <h1 class="" style="margin-top: 180px; font-family: 'Euphoria Script', cursive">
+            Selamat ulang tahun 
+        </h1>
+        <h3 style="display: none; font-family: 'Marck Script', cursive" id="loversname">
+            
+        </h3>
+        <h2 id="date-wedding-1">BOGIE</h2>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">Semoga panjang umur,</p>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">Sehat selalu</p>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">&</p>
+        <p class="m-0" style="font-family: 'Square Peg', cursive;font-size: 40px;">Usahanya semakin berkembang</p>
+        <!-- <a href="/" class="btn btn-primary mt-5">Klik Disc Hitam Untuk Putar Musik</a>     -->
+    </div>
+    <div class="bg bg-primary text-white">
+        From: 027
+    </div>
+    
+    
+
+    <div id="card" class="card fixed-top">
+        <audio id="sound" src="https://github.com/fiansyahm/JQuery/blob/main/happy-birthday.mp3?raw=true" preload="auto" controls></audio>
+        <!-- <audio id="sound" src="thismoment.mp3" preload="auto" controls></audio> -->
+        <img id="disc" src="https://i.pinimg.com/originals/76/33/63/763363a3be941b93610d58f8fb54e638.png" alt="" height="70" width="70" />
+    </div>
+
+    <div class="fireworks"></div>
+    <!-- jsDelivr  -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+
+    <!-- UNPKG -->
+    <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
+
+    <!-- Usage -->
+    <script>
+    const container = document.querySelector('.fireworks')
+    const fireworks = new Fireworks.default(container)
+    fireworks.start()
+    </script>
+
+
+    <script>
+        // static file
+        var flag = 0;
+        const audio = $("#sound")[0];
+
+
+        // functions
+
+        var x = setInterval(function() {
+            var mydatestr = "Dec 12, 2022 00:00:00";
+
+            var mydate = new Date(mydatestr);
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            var indonesiadate = mydate.toLocaleDateString('id', options);
+            var arrDate = indonesiadate.split(',');
+            $("#day-wedding-1").text(arrDate[0]);
+            $("#date-wedding-2-1").text(arrDate[1]);
+            $("#day-wedding-2").text(arrDate[0]);
+            $("#date-wedding-2-2").text(arrDate[1]);
+
+            var countDownDate = mydate.getTime();
+            $("#date-wedding-1").text("BOGIE");
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            if (days < 10) days = "0" + days;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            if (hours < 10) hours = "0" + hours;
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            if (minutes < 10) minutes = "0" + minutes;
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (seconds < 10) seconds = "0" + seconds;
+            $("#days").text(days);
+            $("#hours").text(hours);
+            $("#minutes").text(minutes);
+            $("#seconds").text(seconds);
+            playAudioFirstly();
+
+        }, 1000);
+
+        function setMymargin() {
+            const output = document.querySelector(".output");
+            output.innerHTML = `scrollTop: ${window.scrollY} <br>
+                                scrollLeft: ${window.scrollX} <br>
+                                `;
+        }
+
+        function playAudio() {
+            $("#disc").animate({
+                    "margin-left": "20px",
+                    transform: "rotate(360deg)",
+                },
+                "slow"
+            );
+            audio.play();
+        }
+
+        function stopAudio() {
+            $("#disc").animate({
+                    "margin-left": "110px",
+                    transform: "rotate(360deg)",
+                },
+                "slow"
+            );
+            audio.pause();
+        }
+
+        function checkMarginLeft() {
+            var p = document.getElementById("disc");
+            var style = p.currentStyle || window.getComputedStyle(p);
+            return style;
+        }
+
+        function playAudioFirstly() {
+            var style = checkMarginLeft();
+            var y = window.scrollY;
+            if (y >= 80 && style.marginLeft.toString() == "110px" && flag == 0) {
+                flag = 1;
+                $("#disc").animate({
+                        "margin-left": "20px",
+                        transform: "rotate(360deg)",
+                    },
+                    "slow"
+                );
+
+                setTimeout(function() {
+                    audio.play();
+                }, 1000);
+            }
+        }
+
+        // document ready,scroll,ets
+        $(document).ready(function() {
+            $("#disc").click(function() {
+                var style = checkMarginLeft();
+                if (style.marginLeft.toString() == "110px") {
+                    playAudio();
+                } else {
+                    stopAudio();
+                }
+            });
+            $("#disc").hover(function() {
+                var style = checkMarginLeft();
+                if (style.marginLeft.toString() == "110px") {
+                    playAudio();
+                } else {
+                    stopAudio();
+                }
+            });
+            
+        });
+
+        $(document).scroll(function() {
+
+            // setMymargin();
+            var y = window.scrollY;
+            if (y <= 10) {
+                $("#loversname").fadeIn(4000);
+            } else if (y <= 200) {
+                // playAudioFirstly();
+                $("#dove").fadeIn(10000);
+                $("#tanda-1").slideDown(10000);
+                $("#tanda-2").slideDown(7000);
+                $("#tanda-3").slideDown(4000);
+            } else if (y <= 1400) {
+                $("#foto-profil-1").fadeIn(50000);
+                $("#nickname-profil-1").animate({
+                    marginTop: '125px',
+                }, 10000);
+                $("#fullname-profil-1").animate({
+                    marginLeft: '0px',
+                }, 10000);
+                $("#family-profil-1").fadeIn(50000);
+            } else if (y <= 1850) {
+                $("#foto-profil-2").fadeIn(50000);
+                $("#nickname-profil-2").animate({
+                    marginTop: '0px',
+                }, 10000);
+                $("#fullname-profil-2").animate({
+                    marginRight: '0px',
+                }, 10000);
+                $("#family-profil-2").fadeIn(50000);
+            } else if (y <= 2600) {
+                $("#ring").show(10000);
+                $("#waktu-tempat").fadeTo(10000, 0.5, function() {
+                    $("#waktu-tempat").fadeTo(10000, 1.0);
+                });
+                $("#days-card").animate({
+                    deg: 360
+                }, {
+                    duration: 12000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+                $("#hours-card").animate({
+                    deg: 360
+                }, {
+                    duration: 15000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+                $("#minutes-card").animate({
+                    deg: 360
+                }, {
+                    duration: 18000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+                $("#seconds-card").animate({
+                    deg: 360
+                }, {
+                    duration: 21000,
+                    step: function(now) {
+                        $(this).css({
+                            transform: 'rotate(' + now + 'deg)'
+                        });
+                    }
+                });
+
+                $("#ayat-pasangan-1").fadeIn(21000);
+                $("#ayat-pasangan-2").fadeIn(21000);
+
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>
